@@ -2,6 +2,14 @@ extends layout
 
 block content
   script.
+    mph = 20
+    change = 1
+    function goFaster(){
+      mph += change
+      change += 1
+      document.getElementById("faster").innerHTML = 'MPH ' + mph + ' with change ' + change
+    }
+
     class Donuts {
       constructor(donutType, numberOfDonuts, xPrice){
         this.donutType = donutType
@@ -11,10 +19,3 @@ block content
     }
 
   h1= title
-  .container-fluid
-    .row
-      each donut in results
-        .col-sm-2
-          h3= donut.donutType
-          p= 'Number of Donuts: ' + donut.numberOfDonuts
-          p= 'Price: $' + donut.xPrice
