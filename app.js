@@ -31,6 +31,14 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+app.get('/gridbuild', function(req, res, next){
+  let query = req.query;
+  console.log('rows ${query.rows}');
+  console.log('cols ${query.cols}');
+
+  res.render('board', { title: 'Board Display', query: query });
+})
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
